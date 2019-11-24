@@ -1,4 +1,4 @@
-// modified form Daniel German"s script found at https://github.com/dmgerman/stackOverflowParsing
+// modified from Daniel German's script found at https://github.com/dmgerman/stackOverflowParsing
 
 import scala.io.Source
 import scala.xml.pull._
