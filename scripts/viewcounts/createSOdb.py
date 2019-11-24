@@ -25,6 +25,7 @@ def checkTableExists(connection, tablename):
 
 
 if __name__ == "__main__":
+    print("opening database " + pathtodb)
     # connect to or create SOviews database
     connection = sqlite3.connect(pathtodb)
     cursor = connection.cursor()
@@ -36,14 +37,21 @@ if __name__ == "__main__":
 
         # stops if table/data already exists
         if(checkTableExists(connection,tablename)): 
-            continue
+            newtable = raw_input(tablename + " already exists; delete current table and create new one? [y/n]")
+            if (newtable is not "y"):
+                print("skipping...")
+                continue
+            print("creating new table...")
+            droptablequery = "DROP TABLE " + tablename + ";"
+            cursor.execute(droptablequery)
 
         # create table in SOviews db
-        createtablequery = '''CREATE TABLE IF NOT EXISTS ''' + tablename + '''(
+        createtablequery = '''CREATE TABLE ''' + tablename + '''(
             postid integer, 
             viewcount integer, 
             tag text);'''
 
+        print("importing " + infile + " to " + tablename + "...")
         # import each dump's csv
         importcall = ".import " + infile + " " + tablename
         

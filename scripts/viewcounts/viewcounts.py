@@ -24,6 +24,7 @@ if __name__ == "__main__":
     
     # creates output (langviews) directory
     if not os.path.exists(outputdir):
+        print("creating dir " + outputdir +  "...")
         os.makedirs(outputdir)
 
     # loops through tables relative to each dump
@@ -33,6 +34,7 @@ if __name__ == "__main__":
         if not os.path.exists(outputdir + dir + "/"):
             os.makedirs(outputdir + dir + "/")
 
+        print("writing to " + outputdir + dir + "/")
         # loops through each language
         tablename = "views_" + dir.replace("-","_")
         for lang in languages:

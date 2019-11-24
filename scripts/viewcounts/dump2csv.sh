@@ -6,11 +6,13 @@ pathtodirs="./"
 
 for dir in ${gzip_dirs[@]}; do
     dirname="$pathtodirs$dir"
+    echo extracting to $dirname/postviews.csv...
     gzip -c -d $dirname/Posts.xml.gz | tail -c +4 | scala post-views.scala > $dirname/postviews.csv
 done
 
 for dir in ${p7zip_dirs[@]}; do
     dirname="$pathtodirs$dir"
+    echo extracting to $dirname/postviews.csv...
     p7zip -c -d $dirname/Posts.7z | tail -c +4 | scala post-views.scala > $dirname/postviews.csv
 
 done
