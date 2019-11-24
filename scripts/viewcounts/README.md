@@ -15,7 +15,7 @@ Place all files in base directory containing all dump directories, then run
 
 ## Extract Dumps to csv
 
-Place [dump2csv.sh](./dump2csv.sh) in the dir containing all the dump dirs, and run to extract all dumps at once into csv's containing postid,posttype,viewcount,tag
+Place [dump2csv.sh](./dump2csv.sh) in the dir containing all the dump dirs, and run to extract all dumps at once into csv's containing postid,viewcount,tag
 ```
 chmod +x dump2csv.sh
 ./dump2csv.sh
@@ -42,7 +42,6 @@ Alternatively, import one at a time:
 ```
 CREATE TABLE IF NOT EXISTS views_2016_09_12(
     postid integer, 
-    posttype integer, 
     viewcount integer, 
     tag text
 );

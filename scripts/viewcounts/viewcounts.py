@@ -39,8 +39,7 @@ if __name__ == "__main__":
             # query's all SO question type posts tagged with the given language
             query = ''' SELECT postid, viewcount
                         FROM ''' + tablename + ''' 
-                        WHERE tag = \'''' + lang + '''\'
-                        AND posttype = 1; '''
+                        WHERE tag = \'''' + lang + '''\'; '''
             cursor.execute(query)
 
             # create output csv for each language in each dump's directory within langviews

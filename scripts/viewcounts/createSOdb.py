@@ -41,7 +41,6 @@ if __name__ == "__main__":
         # create table in SOviews db
         createtablequery = '''CREATE TABLE IF NOT EXISTS ''' + tablename + '''(
             postid integer, 
-            posttype integer, 
             viewcount integer, 
             tag text);'''
 

@@ -44,16 +44,15 @@ xml.filter{ event =>
 
       (
         clean(attrs("Id")),
-        clean(attrs("PostTypeId")),
         clean(attrs("ViewCount")),
         clean2(attrs("Tags"))
       )
     }
   }
-}.foreach{ case(id, posttype, views, tags) =>
+}.foreach{ case(id, views, tags) =>
     tags.foreach{ t =>
       if (languages.contains(t))  {
-        println(s"${id}|${posttype}|${views}|${t}")
+        println(s"${id}|${views}|${t}")
       }
     }
 }
